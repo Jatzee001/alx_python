@@ -1,4 +1,4 @@
 def add(a, b):
     return a + b
-result = add(7, 3)
+result = add(1, 2)
 print(result)
