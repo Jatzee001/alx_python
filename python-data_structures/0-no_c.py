@@ -5,6 +5,18 @@ def no_c(my_string):
             new_string += char
     return new_string
 
-# Test the function
-result = no_c("Hello, World! How are you?")
-print(result)  # Output: Hello, World! How are you?
+# Test cases
+test_cases = [
+    "School",
+    "Chicago",
+    "Holberton",
+    "Holberton School",
+    "",
+    "HellcCcccooccoscccss",
+]
+
+for word in test_cases:
+    print(f"Correct output - case: word = \"{word}\"")
+    result = no_c(word)
+    print(result)
+    print()
