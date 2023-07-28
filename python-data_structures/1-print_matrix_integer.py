@@ -1,13 +1,16 @@
 def print_matrix_integer(matrix=[[]]):
-    if not matrix:
-        print("(0 chars long)")
-    else:
-        for row in matrix:
-            if not row:
-                print(" - [Got]")
+    for row in matrix:
+        for i, num in enumerate(row):
+            if i == len(row) - 1:
+                print("{:d}".format(num))
             else:
-                for i, num in enumerate(row):
-                    if i == len(row) - 1:
-                        print("{:d}".format(num))
-                    else:
-                        print("{:d}".format(num), end=" ")
+                print("{:d}".format(num), end=" ")
+
+# Test the function
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print_matrix_integer(matrix)
