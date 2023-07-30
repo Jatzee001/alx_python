@@ -4,11 +4,6 @@ The Square class represents a square with a private instance attribute 'size'.
 It allows instantiation with an optional size, and provides a method 'area' to calculate the square's area.
 The size attribute can be accessed using a property 'size' with a setter for validation.
 
-Example:
-    # Create a square object with size 5
-    square = Square(5)
-    print(square.size)  # Output: 5
-    print(square.area())  # Output: 25 (5 * 5)
 """
 
 class Square:
