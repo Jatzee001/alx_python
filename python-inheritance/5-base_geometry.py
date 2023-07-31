@@ -34,10 +34,39 @@ class BaseGeometry:
         Example:
             >>> bg = BaseGeometry()
             >>> bg.integer_validator("width", 10)  # Valid
-            >>> bg.integer_validator("height", "invalid")  # Raises TypeError
-            >>> bg.integer_validator("side_length", 0)  # Raises ValueError
+            >>> bg.integer_validator("height", 12)  # Valid
+            >>> bg.integer_validator("age", 0)  # Raises ValueError
+            >>> bg.integer_validator("age", -4)  # Raises ValueError
+            >>> bg.integer_validator("age", 13.5)  # Raises TypeError
         """
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
+
+# Test cases
+bg = BaseGeometry()
+
+# Output: List of attributes and methods of the object
+print(dir(bg))
+
+# Output: No exception is raised
+bg.integer_validator("myint", 12)
+
+# Output: No exception is raised
+bg.integer_validator("width", 89)
+
+# Output: Raises TypeError: "name" must be an integer
+bg.integer_validator("name", "John")
+
+# Output: Raises ValueError: "age" must be greater than 0
+bg.integer_validator("age", 0)
+
+# Output: Raises ValueError: "age" must be greater than 0
+bg.integer_validator("age", -4)
+
+# Output: Raises TypeError: "age" must be an integer
+bg.integer_validator("age", 13.5)
+
+# Output: Raises Exception: area() is not implemented
+bg.area()
