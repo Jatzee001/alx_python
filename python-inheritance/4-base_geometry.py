@@ -1,3 +1,5 @@
+# my_module.py
+
 class BaseGeometry:
     """Base class for geometry.
 
