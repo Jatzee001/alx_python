@@ -1,27 +1,40 @@
-# my_module.py
-
-def inherits_from(obj, a_class):
-    """Check if the object is an instance of a class that inherited (directly or indirectly)
-    from the specified class.
+def is_kind_of_class(obj, a_class):
+    """
+    Check if the object is an instance of, or if the object is an instance of a class that inherited from,
+    the specified class.
 
     Args:
-        obj: The object to check.
-        a_class: The class to compare against.
+        obj: The object to be checked.
+        a_class: The specified class to compare against.
 
     Returns:
-        bool: True if the object is an instance of a subclass of the specified class; otherwise False.
-
-    Example:
-        class MyBaseClass:
-            pass
-
-        class MySubClass(MyBaseClass):
-            pass
-
-        obj = MySubClass()
-
-        print(inherits_from(obj, MyBaseClass))  # Output: True (MySubClass is a subclass of MyBaseClass)
-        print(inherits_from(obj, MySubClass))   # Output: False (obj is not a subclass of MySubClass)
-        print(inherits_from(obj, object))      # Output: True (MySubClass is a subclass of object)
+        True if the object is an instance of, or if the object is an instance of a class that inherited from,
+        the specified class; otherwise False.
     """
-    return isinstance(obj, type) and issubclass(type(obj), a_class) and type(obj) is not a_class
+    return isinstance(obj, a_class)
+
+
+# Test cases
+a = 1
+print(is_kind_of_class(a, int))  # Output: True
+
+a = True
+print(is_kind_of_class(a, int))  # Output: False
+
+a = 3.14
+print(is_kind_of_class(a, int))  # Output: False
+
+a = True
+print(is_kind_of_class(a, object))  # Output: True
+
+a = None
+print(is_kind_of_class(a, object))  # Output: True
+
+a = None
+print(is_kind_of_class(a, list))  # Output: False
+
+a = [1, 2, 3]
+print(is_kind_of_class(a, list))  # Output: True
+
+a = [1, 2, 3]
+print(is_kind_of_class(a, object))  # Output: True
