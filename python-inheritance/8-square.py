@@ -29,23 +29,22 @@ class Square(Rectangle):
 
 
 # Test cases
-square = Square(5)
-print(square.area())  # Output: 25
+print(dir(Square))  # Output: List of attributes and methods of the Square class
 
-square = Square(10)
-print(square.area())  # Output: 100
+print(issubclass(Square, Rectangle))  # Output: True (Square is a subclass of Rectangle)
 
-square = Square(1)
-print(square.area())  # Output: 1
+s = Square(4)
+print(s.area())  # Output: 16
 
-square = Square(0)
-# Output: ValueError: size must be greater than 0
+s = Square(1340)
+print(s.area())  # Output: 1795600
 
-square = Square(-5)
-# Output: ValueError: size must be greater than 0
+s = Square()
+# Output: TypeError: __init__() missing 1 required positional argument: 'size'
 
-square = Square("not_a_number")
+s = Square("13")
 # Output: TypeError: size must be an integer
 
-square = Square()
-# Output: TypeError: __init__() missing 1 required positional argument: 'size'
+s = Square(13)
+print(s.width)  # Output: 13
+print(s.height)  # Output: 13
