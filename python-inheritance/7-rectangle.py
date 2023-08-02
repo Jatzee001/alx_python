@@ -1,6 +1,5 @@
 class BaseGeometry:
-    """
-    Base class for geometry.
+    """Base class for geometry.
 
     This class provides a base for other geometry classes to inherit from.
 
@@ -39,8 +38,7 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-    """
-    A class representing a rectangle.
+    """A class representing a rectangle.
 
     This class inherits from BaseGeometry and adds functionality specific to rectangles.
 
@@ -72,26 +70,46 @@ class Rectangle(BaseGeometry):
         return f"[Rectangle] {self.__width}/{self.__height}"
 
 
+class Square(Rectangle):
+    """A class representing a square.
+
+    This class inherits from Rectangle and adds functionality specific to squares.
+
+    Attributes:
+        __size (int): The size of the square.
+    """
+
+    def __init__(self, size):
+        self.integer_validator("size", size)
+        super().__init__(size, size)
+        self.__size = size
+
+    def area(self):
+        """Calculate the area of the square.
+
+        Returns:
+            int: The area of the square.
+        """
+        return self.__size ** 2
+
+
 # Test cases
-print(dir(Rectangle))
+print(dir(Square))  # Output: List of attributes and methods of the Square class
 
-r = Rectangle(1, 4)
-print(r.area())  # Output: 4
+print(issubclass(Square, Rectangle))  # Output: True (Square is a subclass of Rectangle)
 
-r = Rectangle(1411, 781)
-print(r.area())  # Output: 1103191
+s = Square(4)
+print(s.area())  # Output: 16
 
-r = Rectangle(5, 5)
-print(r.area())  # Output: 25
+s = Square(1340)
+print(s.area())  # Output: 1795600
 
-r = Rectangle(1411, 781)
-print(r)  # Output: [Rectangle] 1411/781
+s = Square()
+# Output: TypeError: __init__() missing 1 required positional argument: 'size'
 
-r = Rectangle(1, 4)
-print(r)  # Output: [Rectangle] 1/4
+s = Square("13")
+# Output: TypeError: size must be an integer
 
-r = Rectangle(5, 5)
-print(r)  # Output: [Rectangle] 5/5
-
-r = Rectangle()
-# Output: TypeError: __init__() missing 2 required positional arguments: 'width' and 'height'
+s = Square(13)
+print(s.width)  # Output: 13
+print(s.height)  # Output: 13
