@@ -9,7 +9,7 @@ def is_same_class(obj, a_class):
     Returns:
         bool: True if the object is an instance of the specified class; otherwise, False.
     """
-    return type(obj) is a_class
+    return type(obj) == a_class
 
 
 # Test cases
@@ -23,7 +23,7 @@ a = 3.14
 print(is_same_class(a, int))  # Correct output: False
 
 a = True
-print(is_same_class(a, object))  # Correct output: True
+print(is_same_class(a, object))  # Correct output: False
 
 a = None
 print(is_same_class(a, object))  # Correct output: True
@@ -35,4 +35,4 @@ a = [1, 2, 3]
 print(is_same_class(a, list))  # Correct output: True
 
 a = [1, 2, 3]
-print(is_same_class(a, object))  # Correct output: True
+print(is_same_class(a, object))  # Correct output: False
