@@ -1,38 +1,16 @@
+"""
+same class inheritance task
+"""
+
+
 def is_same_class(obj, a_class):
     """
-    Check if the object is exactly an instance of the specified class.
+    Checks if the class the object is the same as the class of the class.
 
-    Parameters:
-        obj: Any - The object to check.
-        a_class: type - The class to compare against.
-
-    Returns:
-        bool: True if the object is an instance of the specified class; otherwise, False.
     """
-    return type(obj) == a_class
+    if obj.__class__.__name__ == a_class.__name__:
+        return True
+    else:
+        return type(obj) == a_class
 
 
-# Test cases
-a = 1
-print(is_same_class(a, int))  # Correct output: True
-
-a = True
-print(is_same_class(a, int))  # Correct output: False
-
-a = 3.14
-print(is_same_class(a, int))  # Correct output: False
-
-a = True
-print(is_same_class(a, object))  # Correct output: False
-
-a = None
-print(is_same_class(a, object))  # Correct output: True
-
-a = None
-print(is_same_class(a, list))  # Correct output: False
-
-a = [1, 2, 3]
-print(is_same_class(a, list))  # Correct output: True
-
-a = [1, 2, 3]
-print(is_same_class(a, object))  # Correct output: False
