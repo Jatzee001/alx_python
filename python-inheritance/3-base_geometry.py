@@ -1,2 +1,11 @@
+"""
+Only sub class of an empty class
+
+"""
+
 class BaseGeometry:
-    pass
+ """
+ this class doesn't have any attribute or method defined in it.
+ 
+ """
+ pass

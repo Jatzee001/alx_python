@@ -1,11 +1,13 @@
 """
-Only sub class of an empty class
-
+Only sub class of inheritance task
 """
 
-class BaseGeometry:
- """
- this class doesn't have any attribute or method defined in it.
- 
- """
- pass
+
+def inherits_from(obj, a_class):
+    """
+    checks if the type of the given object is a subclass of the specified class
+    """
+    if issubclass(type(obj), a_class) and type(obj)!= a_class:
+        return True
+    else:
+        return False
