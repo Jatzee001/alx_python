@@ -7,10 +7,7 @@ def is_kind_of_class(obj, a_class):
     that inherited from, the specified class.
     """
 
-    if obj.__class__.__name__ == a_class.__name__:
+    if type(obj) == a_class or issubclass(type(obj), a_class):
         return True
     else:
-        return type(obj) == a_class
-
-    
-
+        return False
