@@ -1,18 +1,15 @@
-# my_module.py
+"""
+Improve Geometry mandatory inheritance task
+
+"""
 
 class BaseGeometry:
-    """Base class for geometry.
+    """A base geometry class that defines the area method.
 
-    This class provides a base for other geometry classes to inherit from.
+    This class provides a base implementation for the area method, which can
+    be used by subclasses to calculate the area of different shapes.
 
-    Methods:
-        area(self): Raises an Exception with the message "area() is not implemented".
     """
 
     def area(self):
-        """Calculate the area of the geometry.
-
-        Raises:
-            Exception: Always raises an Exception with the message "area() is not implemented".
-        """
-        raise Exception("area() is not implemented")
+        raise NotImplementedError("area() is not implemented")
