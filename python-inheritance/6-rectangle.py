@@ -3,13 +3,6 @@ class BaseGeometry:
 
     This class provides a base for other geometry classes to inherit from.
 
-    Methods:
-        area(self): Raises an Exception with the message "area() is not implemented".
-        integer_validator(self, name, value): Validates the integer value.
-
-    Attributes:
-        name: The name of the value being validated.
-        value: The integer value to be validated.
     """
 
     def area(self):
@@ -21,15 +14,9 @@ class BaseGeometry:
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Validate the integer value.
+        """
+        Validate the integer value.
 
-        Args:
-            name (str): The name of the value being validated.
-            value: The integer value to be validated.
-
-        Raises:
-            TypeError: If the value is not an integer.
-            ValueError: If the value is less than or equal to 0.
         """
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
@@ -52,8 +39,3 @@ class Rectangle(BaseGeometry):
         self.integer_validator("height", height)
         self.__width = width
         self.__height = height
-
-
-# Test cases
-rectangle = Rectangle(5, 10)
-print(rectangle.__dict__)  # Output: {'_BaseGeometry__width': 5, '_BaseGeometry__height': 10}
