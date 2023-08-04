@@ -1,18 +1,14 @@
-#!/usr/bin/python3
 """
-4-base_geometry.py
+improve geometry inheritance task
 """
-
 class BaseGeometryMeta(type):
     def __dir__(self):
         variables = super().__dir__()
         new_variables = [
-            var for var in variables if var is != "__int_subclass__"]
+            var for var in variables if var != "__int_subclass__"]
         return new_variables
         
 class BaseGeometry(metaclass=BaseGeometryMeta):
-    
-    
     """
     non empty class
     """
@@ -20,7 +16,7 @@ class BaseGeometry(metaclass=BaseGeometryMeta):
     def __dir__(self):
         variables = super().__dir__()
         new_variables = [
-            var for var in variables if var is != "__int_subclass__"]
+            var for var in variables if var != "__int_subclass__"]
         return new_variables
 
     def area(self):
