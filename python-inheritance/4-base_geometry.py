@@ -1,4 +1,5 @@
-# Improve Geometry mandatory inheritance task
+#!/usr/bin/python3
+"""6-rectangle.py"""
 
 class BaseGeometryMeta(type):
     def __dir__(self):
