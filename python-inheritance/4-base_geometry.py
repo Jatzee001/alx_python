@@ -3,13 +3,26 @@ Improve Geometry mandatory inheritance task
 
 """
 
-class BaseGeometry:
-    """A base geometry class that defines the area method.
 
-    This class provides a base implementation for the area method, which can
-    be used by subclasses to calculate the area of different shapes.
-
+class BaseGeometryMeta(type):
+    def __dir__(self):
+        variables = super().__dir__()
+        new_variables = [
+            var for var in variables if var is != "__int_subclass__"]
+        return new_variables
+        
+class BaseGeometry(metaclass=BaseGeometryMeta):
+    
+    
     """
+    The non empty class
+    """
+
+    def __dir__(self):
+        variables = super().__dir__()
+        new_variables = [
+            var for var in variables if var is != "__int_subclass__"]
+        return new_variables
 
     def area(self):
         raise NotImplementedError("area() is not implemented")
