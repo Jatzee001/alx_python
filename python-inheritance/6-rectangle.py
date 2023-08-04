@@ -11,6 +11,7 @@ class BaseGeometry:
         if not isinstance(value, int) or value <= 0:
             raise ValueError(f"{name} must be a positive integer.")
 
+
 # rectangle.py
 from base_geometry import BaseGeometry
 
