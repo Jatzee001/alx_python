@@ -1,8 +1,4 @@
-"""
-Improve Geometry mandatory inheritance task
-
-"""
-
+# Improve Geometry mandatory inheritance task
 
 class BaseGeometryMeta(type):
     def __dir__(self):
