@@ -1,4 +1,6 @@
-# 5-base_geometry.py
+#!/usr/bin/python3
+"""6-rectangle.py"""
+
 class BaseGeometry:
     def area(self):
         raise NotImplementedError("Subclasses must implement the 'area' method.")
