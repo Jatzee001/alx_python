@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""6-rectangle.py"""
+"""
+4-base_geometry.py
+"""
 
 class BaseGeometryMeta(type):
     def __dir__(self):
