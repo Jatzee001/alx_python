@@ -1,33 +1,39 @@
 #!/usr/bin/python3
 """6-rectangle.py"""
 
+
 class BaseGeometry:
+    """BaseGeometry class"""
+
     def area(self):
-        raise NotImplementedError("Subclasses must implement the 'area' method.")
+        """Raises an Exception with the message area() is not implemented"""
+        raise Exception("area() is not implemented")
 
-    def perimeter(self):
-        raise NotImplementedError("Subclasses must implement the 'perimeter' method.")
+    def integer_validator(self, name, value):
+        """Validates value
+        Args:
+            name (str): name of the parameter
+            value (int): value to validate
+        Raises:
+            TypeError: if value is not an integer
+            ValueError: if value is less or equal to 0
+        """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
 
-    @staticmethod
-    def integer_validator(name, value):
-        if not isinstance(value, int) or value <= 0:
-            raise ValueError(f"{name} must be a positive integer.")
-
-
-# rectangle.py
-from base_geometry import BaseGeometry
 
 class Rectangle(BaseGeometry):
-    def __init__(self, width, height):
-        self.__width = 0
-        self.__height = 0
+    """Rectangle class that inherits from BaseGeometry"""
+
+    def _init_(self, width, height):
+        """Instantiates a Rectangle object
+        Args:
+            width (int): width of the rectangle
+            height (int): height of the rectangle
+        """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
         self.__height = height
-
-    def area(self):
-        return self.__width * self.__height
-
-    def perimeter(self):
-        return 2 * (self.__width + self.__height)
