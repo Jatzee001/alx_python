@@ -21,3 +21,17 @@ class BaseGeometry(metaclass=BaseGeometryMeta):
 
     def area(self):
         raise NotImplementedError("area() is not implemented")
+    
+    # Test cases
+
+# Test case 1: bg = BaseGeometry()
+bg = BaseGeometry()
+print(dir(bg))
+
+# Test case 2: bg = BaseGeometry()
+# This will raise a NotImplementedError since area() is not implemented in BaseGeometry.
+bg = BaseGeometry()
+try:
+    print(bg.area())
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
