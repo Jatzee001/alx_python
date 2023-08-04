@@ -15,7 +15,7 @@ class BaseGeometry(metaclass=BaseGeometryMeta):
     
     
     """
-    The non empty class
+    non empty class
     """
 
     def __dir__(self):
