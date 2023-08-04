@@ -19,9 +19,9 @@ class Rectangle(BaseGeometry):
         self.__width = width
         self.__height = height
 
-    if obj.__class__.__name__ == a_class.__name__:
-        return True
-    else:
-        return type(obj) == a_class
+        if type(self) is not int:
+            raise TypeError("{} must be an integer".format(width))
+        if self <= 0:
+            raise ValueError("{} must be greater than 0".format(width))
 
 
