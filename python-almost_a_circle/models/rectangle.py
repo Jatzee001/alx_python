@@ -1,4 +1,4 @@
-# File: models/rectangle.py
+"""Represents a new rectangle"""
 
 class Base:
     def __init__(self, width, height, id=None):
