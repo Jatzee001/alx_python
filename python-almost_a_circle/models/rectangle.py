@@ -45,12 +45,12 @@ class Rectangle(Base):
         self.__y = y
 
     def get_id(self):
-        return self.__id
+        return self._Base__id
 
     def set_id(self, id):
-        self.__id = id
+        self._Base__id = id
 
     # You can add specific methods or override methods from the Base class if needed
     # For example, if you want to customize the __str__ method for the Rectangle class:
     def __str__(self):
-        return f"Rectangle (ID={self.__id}): width={self.__width}, height={self.__height}, area={self.area()}, perimeter={self.perimeter()}, x={self.__x}, y={self.__y}"
+        return f"Rectangle (ID={self.get_id()}): width={self.get_width()}, height={self.get_height()}, area={self.area()}, perimeter={self.perimeter()}, x={self.get_x()}, y={self.get_y()}"
