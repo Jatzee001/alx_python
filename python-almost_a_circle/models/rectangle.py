@@ -1,68 +1,59 @@
-#!/usr/bin/python3
+# In the file models/rectangle.py
+from models.base import Base # Import the Base class
 
-"""This defines a rectangle class"""
-from models.base import Base
+class Rectangle(Base): # Class Rectangle inherits from Base
+    # Private instance attributes, each with its own public getter and setter
+    def _init_(self, width, height, x=0, y=0, id=None): # Class constructor
+        super()._init_(id) # Call the super class with id
+        self.width = width # Assign each argument to the right attribute
+        self.height = height
+        self.x = x
+        self.y = y
 
-class Rectangle(Base):
- """representng a rectangle
- """
+    @property
+    def width(self): # Getter for __width
+        return self.__width
 
- def _init_(self, width, height, x=0, y=0, id=None):
-  """Initializing a new Rectangle
-  Args:
-       width (int): The width of the new Rectangle.
-       height (int): the height of the new rectangle.
-       x (int): the x coordinate of the new rectangle.
-       y (int): the y coordinate of the new rectangle.
-       id(int): the identity of the new rectangle
-  Raises:
-       Typeerror: if either of widht or height is not an int.
-       ValueError: if either of widht or height <-0.
-       TypeError: if either of x or y is not an int.
-       ValueError:if either of x or y < 0.
-  """
-  self.witdth = width
-  self.height = height
-  self.x = x
-  self.y = y
-  super()._init_(id)
+    @width.setter
+    def width(self, value): # Setter for __width
+        if type(value) is not int: # Validate the value
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = value # Assign the value to the private attribute
 
-  #property
-  def width(self):
-      """set/get the width of the Rectangle.
-      """
-      return self.__width
-  
-  #width.setter
-  def width(self, value):
-    if type(value) !=int:
-         raise TypeError("widht must be an integer")
-    if value <= 0:
-       raise ValueError("width must be > 0")
-    self.__width = value
+    @property
+    def height(self): # Getter for __height
+        return self.__height
 
-  #property
- def height(self):
-    """set/get the height of the rectangle"""
-    return self.__height
+    @height.setter
+    def height(self, value): # Setter for __height
+        if type(value) is not int: # Validate the value
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
+        self.__height = value # Assign the value to the private attribute
 
-  #height.setter
-def height(self, value):
-   if type(value) != int:
-      raise TypeError("height must be an integer")
-   if value <= 0:
-      raise ValueError("height must be > 0")
-   self.__height = value
+    @property
+    def x(self): # Getter for __x
+        return self.__x
 
-   #property
-def x(self):
-      """set/get the x coordinate of the rectangle"""
-      return self.__x
-   
-   #x.setter
-def x(self, value):
-   if type(value) != int:
-      raise TypeError("x must be an integer")
-   if value < 0:
-      raise ValueError("x must be  >= 0")
-   self.__x = value
+    @x.setter
+    def x(self, value): # Setter for __x
+        if type(value) is not int: # Validate the value
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
+        self.__x = value # Assign the value to the private attribute
+
+    @property
+    def y(self): # Getter for __y
+        return self.__y
+
+    @y.setter
+    def y(self, value): # Setter for __y
+        if type(value) is not int: # Validate the value
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
+        self.__y = value # Assign the value to the private attribute
