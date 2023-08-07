@@ -1,27 +1,21 @@
-class ClassBase:
-    __nb_objects = 0
+#!/usr/bin/python3
 
-    def __init__(self, id=None):
-        if id is not None:
-            self.id = id
-        else:
-            ClassBase.__nb_objects += 1
-            self.id = ClassBase.__nb_objects
+import unittest
+from models.base import Base  # 1. Change 'base' to 'Base'
 
-# Test the ClassBase functionality
-if __name__ == "__main__":
-    # Create an instance without passing an id (should assign id=1)
-    obj1 = ClassBase()
-    print(obj1.id)  # Output: 1
+class TestBase(unittest.TestCase):
+    def test_initialization(self):
+        base1 = Base()
+        base2 = Base()
+        self.assertEqual(base1.id, 1)
+        self.assertEqual(base2.id, 2)
 
-    # Create another instance without passing an id (should assign id=2)
-    obj2 = ClassBase()
-    print(obj2.id)  # Output: 2
+    def test_saving_id(self):
+        base = Base(100)
+        self.assertEqual(base.id, 100)
 
-    # Create an instance passing an id (should assign id=10)
-    obj3 = ClassBase(10)
-    print(obj3.id)  # Output: 10
+    def test_to_json_string_valid(self):
+        pass
 
-    # Create another instance without passing an id (should assign id=3, which is 1 + 1)
-    obj4 = ClassBase()
-    print(obj4.id)  # Output: 3
+if __name__ == '__main__':  # 3. Fix the 'if__name__' typo
+    unittest.main()
