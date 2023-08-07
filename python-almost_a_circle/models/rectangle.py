@@ -1,5 +1,7 @@
-# In the file models/rectangle.py
-from models.base import Base # Import the Base class
+"""
+In the file models/rectangle.py
+"""
+from models.base import Base # Import the Base class 
 
 class Rectangle(Base): # Class Rectangle inherits from Base
     # Private instance attributes, each with its own public getter and setter
