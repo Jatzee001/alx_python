@@ -1,21 +1,22 @@
 #!/usr/bin/python3
 
-import unittest
-from models.base import Base  # 1. Change 'base' to 'Base'
+"""This is to write the first class base."""
 
-class TestBase(unittest.TestCase):
-    def test_initialization(self):
-        base1 = Base()
-        base2 = Base()
-        self.assertEqual(base1.id, 1)
-        self.assertEqual(base2.id, 2)
+class Base:
+    """
+    Base class for all future classes in this project.
+    Manages the id attribute in all future classes and avoids duplicating the same code and bugs.
+    """
+    __nb_objects = 0
 
-    def test_saving_id(self):
-        base = Base(100)
-        self.assertEqual(base.id, 100)
-
-    def test_to_json_string_valid(self):
-        pass
-
-if __name__ == '__main__':  # 3. Fix the 'if__name__' typo
-    unittest.main()
+    def __init__(self, id=None):
+        """Initializes a new instance of the Base class.
+        
+        Args:
+            id (int): The ID of the instance.
+        """
+        if id is not None:
+            self.id = id
+        else:
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
