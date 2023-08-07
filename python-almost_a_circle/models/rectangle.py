@@ -1,61 +1,56 @@
-"""
-In the file models/rectangle.py
-"""
-from models.base import Base # Import the Base class 
+# File: models/rectangle.py
 
-class Rectangle(Base): # Class Rectangle inherits from Base
-    # Private instance attributes, each with its own public getter and setter
-    def _init_(self, width, height, x=0, y=0, id=None): # Class constructor
-        super()._init_(id) # Call the super class with id
-        self.width = width # Assign each argument to the right attribute
-        self.height = height
-        self.x = x
-        self.y = y
+class Base:
+    def __init__(self, width, height, id=None):
+        self.__width = width
+        self.__height = height
+        self.__id = id
 
-    @property
-    def width(self): # Getter for __width
+    def area(self):
+        return self.__width * self.__height
+
+    def perimeter(self):
+        return 2 * (self.__width + self.__height)
+
+
+class Rectangle(Base):
+    def __init__(self, width, height, x=0, y=0, id=None):
+        super().__init__(width, height, id)
+        self.__x = x
+        self.__y = y
+
+    # Getters and setters for private attributes
+    def get_width(self):
         return self.__width
 
-    @width.setter
-    def width(self, value): # Setter for __width
-        if type(value) is not int: # Validate the value
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = value # Assign the value to the private attribute
+    def set_width(self, width):
+        self.__width = width
 
-    @property
-    def height(self): # Getter for __height
+    def get_height(self):
         return self.__height
 
-    @height.setter
-    def height(self, value): # Setter for __height
-        if type(value) is not int: # Validate the value
-            raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("height must be > 0")
-        self.__height = value # Assign the value to the private attribute
+    def set_height(self, height):
+        self.__height = height
 
-    @property
-    def x(self): # Getter for __x
+    def get_x(self):
         return self.__x
 
-    @x.setter
-    def x(self, value): # Setter for __x
-        if type(value) is not int: # Validate the value
-            raise TypeError("x must be an integer")
-        if value < 0:
-            raise ValueError("x must be >= 0")
-        self.__x = value # Assign the value to the private attribute
+    def set_x(self, x):
+        self.__x = x
 
-    @property
-    def y(self): # Getter for __y
+    def get_y(self):
         return self.__y
 
-    @y.setter
-    def y(self, value): # Setter for __y
-        if type(value) is not int: # Validate the value
-            raise TypeError("y must be an integer")
-        if value < 0:
-            raise ValueError("y must be >= 0")
-        self.__y = value # Assign the value to the private attribute
+    def set_y(self, y):
+        self.__y = y
+
+    def get_id(self):
+        return self.__id
+
+    def set_id(self, id):
+        self.__id = id
+
+    # You can add specific methods or override methods from the Base class if needed
+    # For example, if you want to customize the __str__ method for the Rectangle class:
+    def __str__(self):
+        return f"Rectangle (ID={self.__id}): width={self.__width}, height={self.__height}, area={self.area()}, perimeter={self.perimeter()}, x={self.__x}, y={self.__y}"
