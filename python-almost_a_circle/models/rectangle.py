@@ -133,3 +133,55 @@ class Rectangle(Base):
         area docs
         """
         return self.__width * self.__height
+    
+    def display(self):
+        """
+        Print the Rectangle using '#' character.
+        """
+        for row in range(self.y):
+            print()
+        else:
+            for row in range(self.height):
+                for column in range(self.x):
+                    print("#", end="")
+                else:
+                    for column in range(self.width):
+                        print("#", end="")
+                    else:
+                        print()
+        
+    def __str__(self) -> str:
+        """
+        str update
+        """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+    
+    def update(self, *args, **kwargs):
+        """
+        update attributes
+        """
+        args_lenght = len(args)
+        kwargs_length = len(kwargs)
+
+        for key, value in kwargs.items():
+            if key =="id":
+                self.id= value
+            elif key == "width":
+                self.width = value
+            elif key == "height":
+                self.height = value
+            elif key == "x":
+                self.x = value
+            elif key == "y":
+                self.y = value
+
+        if args_lenght > 0:
+            self.id = args[0]
+        if args_lenght > 1:
+            self.width = args[1]
+        if args_lenght > 2:
+            self.height = args[2]
+        if args_lenght > 3:
+            self.x = args[3]
+        if args_lenght > 4:
+            self.y = args[4]
