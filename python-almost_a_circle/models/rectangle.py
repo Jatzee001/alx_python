@@ -130,6 +130,6 @@ class Rectangle(Base):
 
     def area(self):
         """
-        Return the area of the rectangle
+        area docs
         """
         return self.__width * self.__height
