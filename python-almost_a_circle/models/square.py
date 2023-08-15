@@ -13,6 +13,17 @@ class Square(Rectangle):
         """Return the string representation of the Square."""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
 
+    @property
+    def size(self):
+        """Get size."""
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """Set size."""
+        self.width = value
+        self.height = value
+
 # Sample usage
 if __name__ == "__main__":
     s1 = Square(5)
@@ -33,3 +44,15 @@ if __name__ == "__main__":
     print(s3)
     print(s3.area())
     s3.display()
+
+    print("---")
+
+    s4 = Square(4)
+    print(s4)
+    print(s4.area())
+    s4.display()
+
+    s4.size = 10
+    print(s4)
+    print(s4.area())
+    s4.display()
