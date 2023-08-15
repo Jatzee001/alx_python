@@ -15,5 +15,18 @@ class Square(Rectangle):
 
 # Sample usage
 if __name__ == "__main__":
-    square = Square(5, 2, 3, 1)
-    print(square)
+    square1 = Square(5)
+    print(square1)
+    
+    square2 = Square(5, 7)
+    print(square2)
+    
+    square3 = Square(5, 7, 2)
+    print(square3)
+    
+    square4 = Square(5, 7, 2, 89)
+    print(square4)
+    
+    print("Area:", square4.area())
+    print("Display:")
+    square4.display()
