@@ -20,6 +20,7 @@ class Rectangle(Base):
         - area(self): Returns the area of the Rectangle instance.
         - display(self): Prints the Rectangle instance using the character '#'.
         - __str__(self): Returns the string representation of the Rectangle instance.
+        - update(self, *args): Update the attributes of the Rectangle instance.
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -39,94 +40,45 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-    @property
-    def width(self):
-        """Getter for width."""
-        return self.__width
+    # ... (Other methods)
 
-    @width.setter
-    def width(self, value):
-        """Setter for width."""
-        self.integer_validator("width", value)
-        self.__width = value
-
-    @property
-    def height(self):
-        """Getter for height."""
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        """Setter for height."""
-        self.integer_validator("height", value)
-        self.__height = value
-
-    @property
-    def x(self):
-        """Getter for x."""
-        return self.__x
-
-    @x.setter
-    def x(self, value):
-        """Setter for x."""
-        self.integer_validator("x", value)
-        self.__x = value
-
-    @property
-    def y(self):
-        """Getter for y."""
-        return self.__y
-
-    @y.setter
-    def y(self, value):
-        """Setter for y."""
-        self.integer_validator("y", value)
-        self.__y = value
-
-    def integer_validator(self, name, value):
+    def update(self, *args):
         """
-        Validate if a given value is a positive integer.
+        Update the attributes of the Rectangle instance.
 
         Args:
-            name (str): The name of the value being validated.
-            value (int): The value to be validated.
+            *args: Variable number of arguments to update the attributes in the order:
+                   id, width, height, x, y
+        """
+        num_args = len(args)
+        if num_args > 0:
+            self.id = args[0]
+        if num_args > 1:
+            self.width = args[1]
+        if num_args > 2:
+            self.height = args[2]
+        if num_args > 3:
+            self.x = args[3]
+        if num_args > 4:
+            self.y = args[4]
 
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is not a positive integer.
-        """
-        if not isinstance(value, int):
-            raise TypeError(f"{name} must be an integer")
-        if name == "width" or name == "height":
-            if value <= 0:
-                raise ValueError(f"{name} must be > 0")
-        elif name == "x" or name == "y":
-            if value < 0:
-                raise ValueError(f"{name} must be >= 0")
-
-    def display(self):
-        """
-        Print the Rectangle instance using the character '#' while taking into account x and y positions.
-        """
-        for _ in range(self.__y):
-            print()
-        for _ in range(self.__height):
-            print(" " * self.__x + "#" * self.__width)
-
-    def __str__(self):
-        """
-        Return a string representation of the rectangle.
-
-        Returns:
-            str: The rectangle description in the format [Rectangle] (<id>) <x>/<y> - <width>/<height>.
-        """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+    # ... (Other methods)
 
 if __name__ == "__main__":
-    r1 = Rectangle(2, 3, 2, 2)
-    r1.display()
+    r1 = Rectangle(10, 10, 10, 10)
+    print(r1)
 
-    print("---")
+    r1.update(89)
+    print(r1)
 
-    r2 = Rectangle(3, 2, 1, 0)
-    r2.display()
+    r1.update(89, 2)
+    print(r1)
+
+    r1.update(89, 2, 3)
+    print(r1)
+
+    r1.update(89, 2, 3, 4)
+    print(r1)
+
+    r1.update(89, 2, 3, 4, 5)
+    print(r1)
