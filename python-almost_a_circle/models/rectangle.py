@@ -18,6 +18,7 @@ class Rectangle(Base):
     Public Methods:
         - __init__(self, width, height, x=0, y=0, id=None): Initializes a Rectangle instance.
         - area(self): Returns the area of the Rectangle instance.
+        - display(self): Prints the Rectangle instance using the character '#'.
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -102,21 +103,18 @@ class Rectangle(Base):
             if value < 0:
                 raise ValueError(f"{name} must be >= 0")
 
-    def area(self):
+    def display(self):
         """
-        Calculate and return the area of the rectangle.
-
-        Returns:
-            int: The area of the rectangle.
+        Print the Rectangle instance using the character '#'.
         """
-        return self.__width * self.__height
+        for _ in range(self.__height):
+            print("#" * self.__width)
 
 if __name__ == "__main__":
-    r1 = Rectangle(3, 2)
-    print(r1.area())
+    r1 = Rectangle(4, 6)
+    r1.display()
 
-    r2 = Rectangle(2, 10)
-    print(r2.area())
+    print("---")
 
-    r3 = Rectangle(8, 7, 0, 0, 12)
-    print(r3.area())
+    r2 = Rectangle(2, 2)
+    r2.display()
