@@ -20,7 +20,7 @@ class Rectangle(Base):
         - area(self): Returns the area of the Rectangle instance.
         - display(self): Prints the Rectangle instance using the character '#'.
         - __str__(self): Returns the string representation of the Rectangle instance.
-        - update(self, *args): Update the attributes of the Rectangle instance.
+        - update(self, *args, **kwargs): Update the attributes of the Rectangle instance.
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -42,25 +42,21 @@ class Rectangle(Base):
 
     # ... (Other methods)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Update the attributes of the Rectangle instance.
 
         Args:
-            *args: Variable number of arguments to update the attributes in the order:
-                   id, width, height, x, y
+            *args: Variable number of positional arguments.
+            **kwargs: Keyword arguments representing key/value pairs to update attributes.
         """
-        num_args = len(args)
-        if num_args > 0:
-            self.id = args[0]
-        if num_args > 1:
-            self.width = args[1]
-        if num_args > 2:
-            self.height = args[2]
-        if num_args > 3:
-            self.x = args[3]
-        if num_args > 4:
-            self.y = args[4]
+        if args:
+            attrs = ["id", "width", "height", "x", "y"]
+            for i, value in enumerate(args):
+                setattr(self, attrs[i], value)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     # ... (Other methods)
 
@@ -68,17 +64,14 @@ if __name__ == "__main__":
     r1 = Rectangle(10, 10, 10, 10)
     print(r1)
 
-    r1.update(89)
+    r1.update(height=1)
     print(r1)
 
-    r1.update(89, 2)
+    r1.update(width=1, x=2)
     print(r1)
 
-    r1.update(89, 2, 3)
+    r1.update(y=1, width=2, x=3, id=89)
     print(r1)
 
-    r1.update(89, 2, 3, 4)
-    print(r1)
-
-    r1.update(89, 2, 3, 4, 5)
+    r1.update(x=1, height=2, y=3, width=4)
     print(r1)
