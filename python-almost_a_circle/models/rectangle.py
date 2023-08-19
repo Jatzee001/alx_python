@@ -19,6 +19,7 @@ class Rectangle(Base):
         - __init__(self, width, height, x=0, y=0, id=None): Initializes a Rectangle instance.
         - area(self): Returns the area of the Rectangle instance.
         - display(self): Prints the Rectangle instance using the character '#'.
+        - __str__(self): Returns the string representation of the Rectangle instance.
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -110,11 +111,18 @@ class Rectangle(Base):
         for _ in range(self.__height):
             print("#" * self.__width)
 
+    def __str__(self):
+        """
+        Return a string representation of the rectangle.
+
+        Returns:
+            str: The rectangle description in the format [Rectangle] (<id>) <x>/<y> - <width>/<height>.
+        """
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+
 if __name__ == "__main__":
-    r1 = Rectangle(4, 6)
-    r1.display()
+    r1 = Rectangle(4, 6, 2, 1, 12)
+    print(r1)
 
-    print("---")
-
-    r2 = Rectangle(2, 2)
-    r2.display()
+    r2 = Rectangle(5, 5, 1)
+    print(r2)
