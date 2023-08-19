@@ -1,30 +1,40 @@
 #!/usr/bin/python3
-"""Defines a Square class that inherits from Rectangle."""
+"""
+Module models/square: This module defines the Square class.
+"""
+
 from models.rectangle import Rectangle
 
 class Square(Rectangle):
-    """Represent a square."""
+    """
+    Square class inherits from Rectangle and represents a square.
+
+    Public Methods:
+        - __init__(self, size, x=0, y=0, id=None): Initializes a Square instance.
+        - __str__(self): Returns the string representation of the Square instance.
+    """
 
     def __init__(self, size, x=0, y=0, id=None):
-        """Initialize the square."""
+        """
+        Initialize a Square instance.
+
+        Args:
+            size (int): The size of the square.
+            x (int, optional): The horizontal position of the square. Defaults to 0.
+            y (int, optional): The vertical position of the square. Defaults to 0.
+            id (int, optional): The unique identifier of the square. Defaults to None.
+        """
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        """Return the string representation of the Square."""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        """
+        Return a string representation of the square.
 
-    @property
-    def size(self):
-        """Get size."""
-        return self.width
+        Returns:
+            str: The square description in the format [Square] (<id>) <x>/<y> - <size>.
+        """
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
-    @size.setter
-    def size(self, value):
-        """Set size."""
-        self.width = value
-        self.height = value
-
-# Sample usage
 if __name__ == "__main__":
     s1 = Square(5)
     print(s1)
@@ -44,15 +54,3 @@ if __name__ == "__main__":
     print(s3)
     print(s3.area())
     s3.display()
-
-    print("---")
-
-    s4 = Square(4)
-    print(s4)
-    print(s4.area())
-    s4.display()
-
-    s4.size = 10
-    print(s4)
-    print(s4.area())
-    s4.display()
