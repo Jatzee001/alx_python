@@ -120,10 +120,21 @@ class Rectangle(Base):
         for _ in range(self.__height):
             print("#" * self.__width)
 
-if __name__ == "__main__":
-    r1 = Rectangle(4, 6)
-    r1.display()
+        def __str__(self):
+        """
+        Return a string representation of the rectangle.
 
-    print("---")
-    r2 = Rectangle(2, 2)
-    r2.display()
+        Returns:
+            
+        str: The rectangle description in the format [Rectangle] (<id>) <x>/<y> - <width>/<height>.
+        
+        """
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+
+if __name__ == "__main__":
+    r1 = Rectangle(4, 6, 2, 1, 12)
+    print(r1)
+
+    r2 = Rectangle(5, 5, 1)
+    print(r2)
+
