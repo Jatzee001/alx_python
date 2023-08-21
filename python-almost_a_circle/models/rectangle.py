@@ -112,7 +112,7 @@ class Rectangle(Base):
             int: The area of the rectangle.
         """
         return self.__width * self.__height
-
+    
 if __name__ == "__main__":
     r1 = Rectangle(3, 2)
     print(r1.area())
@@ -122,3 +122,18 @@ if __name__ == "__main__":
 
     r3 = Rectangle(8, 7, 0, 0, 12)
     print(r3.area())
+
+    def display(self):
+        """
+        Print the Rectangle instance using the character '#'.
+        """
+        for _ in range(self.__height):
+            print("#" * self.__width)
+
+if __name__ == "__main__":
+    r1 = Rectangle(4, 6)
+    r1.display()
+
+    print("---")
+    r2 = Rectangle(2, 2)
+    r2.display()
