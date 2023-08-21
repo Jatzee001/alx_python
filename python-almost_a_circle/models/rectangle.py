@@ -104,6 +104,7 @@ class Rectangle(Base):
             if value < 0:
                 raise ValueError(f"{name} must be >= 0")
 
+
 if __name__ == "__main__":
     try:
         Rectangle(10, "2")
