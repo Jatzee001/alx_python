@@ -36,7 +36,7 @@ def hbnb():
     Route handler for the '/hbnb' URL.
 
     Returns:
-        str: The message "HBNB" to be displayed in the browser.
+        str: The message "HBNB" to be  displayed in the browser.
     """
     return "HBNB"
 
