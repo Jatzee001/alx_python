@@ -49,7 +49,7 @@ def hello_hbnb():
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def number_odd_or_even(n):
     """
-    Route handler for URLs with the '/number_odd_or_even/<n>' pattern.
+    Route handler for  URLs with the '/number_odd_or_even/<n>' pattern.
     Args:
         n (int): The number provided in the URL.
     Returns:
