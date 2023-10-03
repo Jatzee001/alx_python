@@ -1,3 +1,10 @@
+"""
+This script fetches employee data and exports it in JSON format.
+It records all tasks owned by the specified employee.
+
+Usage: python export_to_JSON.py <employee_id>
+"""
+
 import requests
 import sys
 import json
