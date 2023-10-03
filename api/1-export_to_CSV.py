@@ -16,6 +16,10 @@ def get_employee_data(employee_id):
     todos_response = requests.get(f"{base_url}/users/{employee_id}/todos")
     todos_data = todos_response.json()
 
+    if not todos_data:
+        print(f"No tasks found for Employee {username} (ID: {user_id}).")
+        return
+
     # Create a CSV file for the employee
     csv_filename = f"{user_id}.csv"
     with open(csv_filename, mode='w', newline='') as csv_file:
