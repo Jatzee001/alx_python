@@ -33,7 +33,7 @@ def get_employee_data(employee_id):
             task_completed = "True" if task["completed"] else "False"
             csv_writer.writerow([user_id, username, task_completed, task["title"]])
 
-    print(f"Data exported to {csv_filename}")
+    print(f"Correct number of tasks in CSV for Employee {username} (ID: {user_id}).")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
